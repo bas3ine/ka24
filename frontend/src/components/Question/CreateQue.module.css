@@ -1,0 +1,18 @@
+.ButtonCh{
+    height: 100px !important;
+    font-size: 24px !important;
+    padding: 0 50px 0 50px !important;
+}
+.paddingCard {
+    font-size: 44px !important;
+    margin: 10px !important;
+    max-width:200px !important;
+    min-width:200px !important;
+    max-height:200px !important;
+    min-height:200px !important;
+  }
+.paddingAnswer{
+    padding:40px  !important;
+    font-size: 44px !important;
+    margin: 10px !important;
+}

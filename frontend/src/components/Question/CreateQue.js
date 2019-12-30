@@ -47,11 +47,13 @@ export class CreateQue extends Component {
         answer:answer,
       })
     }
-    console.log(this.state)
   }
 
   addquestion = e =>{
     e.preventDefault()
+    if((this.state.ch1=="")||(this.state.ch2=="")||(this.state.ch3=="")||(this.state.ch4=="")||(this.state.answer=="")){
+      console.log("wrong syntax")
+    } else {
     Axios.post("/addquestion",{
       ch1:this.state.ch1,
       ch2:this.state.ch2,
@@ -67,6 +69,7 @@ export class CreateQue extends Component {
     }).catch(err=>{
       console.error(err)
     })
+  }
   }
 
   putAnswerFrom = (e) => {

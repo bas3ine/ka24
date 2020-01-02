@@ -6,7 +6,7 @@
 This project is for everyone who likes 4 Number Game Solver.You can play and compete with others players in real time!
 
 ## Description
-this project is like a 24 slover.It has 6 main pages which are `/Login`,`/Home`,`/CreateQuestion`,`/SelectQuestion`,`/play` and `/scoreboard`
+this project is like a 24 slover. It has 6 main pages which are `/Login`,`/Home`,`/CreateQuestion`,`/SelectQuestion`,`/play` and `/scoreboard`
 
 ## 📦 Built With
 
@@ -28,8 +28,8 @@ this project is like a 24 slover.It has 6 main pages which are `/Login`,`/Home`,
 
 ```mermaid
 graph LR;
-  ka24 --> ka24-backend;
-  ka24-backend --> ka24;
+  ka24-frontend --> ka24-backend;
+  ka24-backend --> ka24-frontend;
   ka24-backend -->|JWT| PassportJS;
   PassportJS -->|Authentication| ka24-backend;
   ka24-backend --> Sequelize;
@@ -37,6 +37,7 @@ graph LR;
   Sequelize --> MySQL;
   MySQL --> Sequelize;
 ```
+![structure](/readme/structure.png)
 
 ## 📋 Features
 
@@ -75,9 +76,10 @@ graph LR;
 
         nodemon index.js
 
+## Default link: http://localhost:3000/
+
 ## More detail...
-- [Frontend](/readme/frontend.md)
+- [Frontend](/readme/frontend.md) `[Coming Soon!]`
 - [Backend](/readme/backend.md)
 
-## Default link: http://localhost:3000/
 

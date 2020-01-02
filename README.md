@@ -1,7 +1,12 @@
 # ka24 - 4 Number Game Solver
 
+![test image size](/readme/ka24.png)
+
 ## About
 This project is for everyone who likes 4 Number Game Solver.You can play and compete with others players in real time!
+
+## Description
+this project is like a 24 slover.It has 6 main pages which are `/Login`,`/Home`,`/CreateQuestion`,`/SelectQuestion`,`/play` and `/scoreboard`
 
 ## 📦 Built With
 
@@ -15,8 +20,9 @@ This project is for everyone who likes 4 Number Game Solver.You can play and com
 
  - [JavaScript](https://javascript.info) - A programing language
  - [Sequelize](https://sequelize.org/) - A Backend Library
+ - [JWT](https://www.npmjs.com/package/jsonwebtoken) - A Json Web Token
  - [MySQL](https://www.mysql.com/) - A structured query language
- - [MySQLWorkbench](https://www.mysql.com/products/workbench/) -A unified visual tool
+ - [NodeJS](https://nodejs.org/en/) -A JavaScript runtime built
 
 ## 🛠 Structure
 
@@ -34,7 +40,7 @@ graph LR;
 
 ## 📋 Features
 
-- Login and Register system with JWT.
+- Login and Register system.
 - View questions list.
 - Create and save questions to questions list.
 - Play the game. `[Coming Soon!]`
@@ -69,6 +75,9 @@ graph LR;
 
         nodemon index.js
 
+## More detail...
+- [Frontend](/readme/frontend.md)
+- [Backend](/readme/backend.md)
 
 ## Default link: http://localhost:3000/
 

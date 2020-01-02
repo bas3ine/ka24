@@ -16,6 +16,7 @@ This project is for everyone who likes 4 Number Game Solver.You can play and com
  - [JavaScript](https://javascript.info) - A programing language
  - [Sequelize](https://sequelize.org/) - A Backend Library
  - [MySQL](https://www.mysql.com/) - A structured query language
+ - [MySQLWorkbench](https://www.mysql.com/products/workbench/) -A unified visual tool
 
 ## 🛠 Structure
 
@@ -52,6 +53,7 @@ graph LR;
 1. Clone this project by
 
     git clone https://github.com/bas3ine/ka24.git
+
 
 2. Move into project and run this command
 

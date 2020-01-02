@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Input, Button, Form, Card } from 'antd';
 import style from './CreateQue.module.css'
-import ModalCreate from './ModalCreate'
+import CollectionCreateForm from './CollectionCreateForm'
 import Axios from 'axios';
 // import Axios from "../config/axios.setup"
 
@@ -15,7 +15,8 @@ export class CreateQue extends Component {
     ch3: "",
     ch4: "",
     answer: "",
-    text: ''
+    text: '',
+    visible: false,
   }
   onChange = e => {
     console.log(e.target.value);
@@ -73,35 +74,38 @@ export class CreateQue extends Component {
   }
   }
 
-  putAnswerFrom = (e) => {
-    e.preventDefault();
-    // this.props.form.validateFieldsAndScroll((err, value) => {
-    //     console.log(err, "outcondition")
-    //     console.log(value, "VALUE VALUE")
-    //     if (!err) {
-    //         console.log("incomdition")
-    //         Axios.post('/registerUser', {
-    //             username: value.username,
-    //             password: value.password,
-    //             name: value.name,
-    //             email: value.email
-    //         })
-    //             .then(result => {
-    //                 console.log(value,"value is")
-    //                 signupOpenNotification()
-    //                 console.log(result.response)
-    //                 this.props.history.push("/login")
-    //             })
-    //             .catch(err => {
-    //                 console.error(err.response.data.message, "--------")
-    //                 signupFailedNotification(err.response.data.message)
-    //             })
-    //     } else {
-    //         console.log("ERROR")
-    //     }
-    // })
-  }
+  showModal = () => {
+    this.setState({ visible: true });
+  };
 
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleCreate = () => {
+    const { form } = this.formRef.props;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+      console.log('Received values of form: ', values);
+      console.log('Name: ', values.questionName,"difficulty is ",values.difficulty);
+      Axios.post("/addquestionTopic",{
+        questionName:values.questionName,
+        difficulty:values.difficulty
+      }).then(result =>{
+        console.log(result.response)
+        form.resetFields();
+        this.setState({ visible: false });
+      }).catch(err=>{
+        console.error(err)
+      })
+    });
+  };
+
+  saveFormRef = formRef => {
+    this.formRef = formRef;
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form
@@ -161,8 +165,17 @@ export class CreateQue extends Component {
         </Button>
             </Col>
             <Col>
-        <ModalCreate></ModalCreate>
-            </Col>
+            <Button block type="primary" shape="round"
+                className={style.ButtonCh} 
+                onClick={this.showModal}>
+          Done
+        </Button>
+        <CollectionCreateForm
+          wrappedComponentRef={this.saveFormRef}
+          visible={this.state.visible}
+          onCancel={this.handleCancel}
+          onCreate={this.handleCreate}
+        />            </Col>
           </Row>
         </Col>
       </Row>

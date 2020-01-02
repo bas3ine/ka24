@@ -26,4 +26,13 @@ const Op = Sequelize.Op;
         // Lab 1
       }
     )
+
+    // app.post('/addquestion_list', passport.authenticate('jwt',{session:false}),
+    // function (req,res) {
+    //   db.question_list.update({
+
+    //   })
+    // }
+    // )
+
 }

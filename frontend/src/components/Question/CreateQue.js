@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Input, Button, Form, Card } from 'antd';
 import style from './CreateQue.module.css'
+import ModalCreate from './ModalCreate'
 import Axios from 'axios';
 // import Axios from "../config/axios.setup"
 
@@ -160,10 +161,7 @@ export class CreateQue extends Component {
         </Button>
             </Col>
             <Col>
-              <Button block type="primary" shape="round"
-                className={style.ButtonCh}>
-                Done
-        </Button>
+        <ModalCreate></ModalCreate>
             </Col>
           </Row>
         </Col>

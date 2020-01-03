@@ -28,25 +28,37 @@ module.exports = (app, db) => {
     }
   )
 
-  app.post('/addquestionTopic', passport.authenticate('jwt', { session: false }),
+  app.post('/createquestionTopic', passport.authenticate('jwt', { session: false }),
     async function (req, res) {
-      let result = await db.question_list.create({
-        questionName: req.body.questionName,
-        difficulty: req.body.difficulty,
+      db.question_list.create({
         user_id: req.user.id,
       })
-      db.question.create({
-        question_list_id: result.id
-      })
-        .then(() => {
-          console.log('update success', req.body)
-          res.status(200).send({ message: 'question topic created' })
+        .then((result) => {
+          // console.log('update success', result)
+          res.status(201).send(result)
         })
         .catch((err) => {
           console.error(err, "")
           res.status(400).send({ message: "wrong syntax" })
         })
     }
-  )
+    )
+    app.put('/addquestionTopic',passport.authenticate('jwt',{session:false}),
+    async function (req,res){
+      let result = await db.question_list.findOne({
+        where:{id:req.body.question_list_id},
+      })
+      if(!result) {
+        res.status(404).send({ message: "bad request at create question" })
+      } else {
+        result.update({
+          questionName: req.body.questionName,
+          difficulty: req.body.difficulty,
+        })
+        res.status(201).send({ message: "create question success" })
+      }
+    }
+    )
 
 }
+

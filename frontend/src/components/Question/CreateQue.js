@@ -3,6 +3,7 @@ import { Row, Col, Input, Button, Form, Card } from 'antd';
 import style from './CreateQue.module.css'
 import CollectionCreateForm from './CollectionCreateForm'
 import Axios from 'axios';
+import { withRouter} from 'react-router-dom'
 // import Axios from "../config/axios.setup"
 
 const { TextArea } = Input;
@@ -17,6 +18,7 @@ export class CreateQue extends Component {
     answer: "",
     text: '',
     visible: false,
+    question_list_id: this.props.location.state.question_list_id,
   }
   onChange = e => {
     console.log(e.target.value);
@@ -62,6 +64,7 @@ export class CreateQue extends Component {
       ch3:this.state.ch3,
       ch4:this.state.ch4,
       answer:this.state.answer,
+      question_list_id:this.state.question_list_id
     }).then(result =>{
       console.log("this.state is :",this.state)
       console.log(result.response)
@@ -90,13 +93,15 @@ export class CreateQue extends Component {
       }
       console.log('Received values of form: ', values);
       console.log('Name: ', values.questionName,"difficulty is ",values.difficulty);
-      Axios.post("/addquestionTopic",{
+      Axios.put("/addquestionTopic",{
         questionName:values.questionName,
-        difficulty:values.difficulty
+        difficulty:values.difficulty,
+        question_list_id:this.state.question_list_id
       }).then(result =>{
         console.log(result.response)
         form.resetFields();
         this.setState({ visible: false });
+        this.props.history.push("/home")
       }).catch(err=>{
         console.error(err)
       })
@@ -184,4 +189,4 @@ export class CreateQue extends Component {
 }
 const WrappedAdvancedSearchForm = Form.create({ name: 'advanced_search' })(CreateQue);
 
-export default WrappedAdvancedSearchForm
+export default withRouter(WrappedAdvancedSearchForm)

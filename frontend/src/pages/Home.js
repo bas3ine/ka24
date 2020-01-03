@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 import { Row, Col,Input,Button } from 'antd';
+import Axios from 'axios';
 
 
 export class Home extends Component {
 
     onCreate =()=>{
-        this.props.history.push('/create');
+        Axios.post("/createquestionTopic",{
+          }).then(result =>{
+            console.log(result.data)
+            this.props.history.push('/create',{ question_list_id:result.data.id });
+          }).catch(err=>{
+            console.error(err)
+          })
+        
     }
     onSelect =()=>{
         this.props.history.push('/select');

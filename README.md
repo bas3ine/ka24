@@ -57,6 +57,7 @@ graph LR;
 
 ## 💡 Getting Started
 
+SQL
 1. Clone this project by
 
     git clone https://github.com/bas3ine/ka24.git
@@ -72,6 +73,18 @@ graph LR;
 
     2.2 At Backend
 
+    ### !!If you haven't SQL then download first
+
+    go to `/config/config.json` and change these field like you want.
+
+    `"username": "root",`
+    `"password": "password",`
+    `"database": "mathfast",`
+
+    then run this command
+
+        sequelize db:create 
+        
         npm -i
 
         nodemon index.js

@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
 import { Card, Menu, Breadcrumb, Button,Typography } from 'antd';
+import { withRouter} from 'react-router-dom'
+import Axios from 'axios';
 
 export class List extends Component {
-    
+
     handleIDForPlay = () =>{
         console.log(this.props.QueList)
+        Axios.get(`/playQuestion/${this.props.QueList.id}`,)
+        .then(result=>{
+            console.log("result.data is ",result.data.question)
+            this.props.history.push('/play',{question:result.data.question});
+        }).catch(err=>{
+            console.error(err)
+        })
     }
 
     render() {
@@ -23,4 +32,4 @@ Create by <Text code>{this.props.QueList.user.nickName} </Text>
     }
 }
 
-export default List
+export default withRouter(List)

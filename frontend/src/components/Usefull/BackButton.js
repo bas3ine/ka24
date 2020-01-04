@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 export class BackButton extends Component {
     onBackButton = () => {
-        this.props.history.push("/home");
+        this.props.history.push(this.props.goToPath);
     }
     render() {
         return (

@@ -27,4 +27,19 @@ const Op = Sequelize.Op;
         })
       }
     )
+    app.get('/playQuestion/:id',passport.authenticate('jwt',{session:false}),
+    function (req,res) {
+      db.question.findAll({
+        where:{question_list_id:req.params.id},
+      })
+      .then((question)=>{
+        console.log('Showing Question is',question.data,'success')
+        res.status(200).send({ message: 'render question for play success',question})
+      })
+      .catch(err => {
+        console.error(err,"error render")
+        res.status(400).send({message:err})
+      })
+    }
+    )
 }

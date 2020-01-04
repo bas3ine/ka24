@@ -8,7 +8,7 @@ export class Create extends Component {
         return (
             <Row style={{paddingTop:"10px"}}>
                 <Col span={2}>
-                <BackButton></BackButton>
+                <BackButton goToPath={'/home'}></BackButton>
                 </Col>
                 <Col span={20}>
 <CreateQue></CreateQue>

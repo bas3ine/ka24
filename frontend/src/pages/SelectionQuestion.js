@@ -73,7 +73,7 @@ export class SelectionQuestion extends Component {
   render() {
     return (
       <Row style={{ paddingTop: "10px" }}>
-        <Col span={2}><BackButton /></Col>
+        <Col span={2}><BackButton goToPath={'/home'} /></Col>
         <Col span={20}>
           <Row gutter={[16, 16]} style={{ paddingTop: "10px" }}>
             <Menu style={{ borderRadius: "30px" }} mode="horizontal" onClick={(e) => this.handleCategoriesId(e.key)}>

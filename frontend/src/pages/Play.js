@@ -8,12 +8,7 @@ export class Play extends Component {
     state={
         question:this.props.location.state.question
     }
-
-    checkState=()=>{
-        console.log(this.state)
-    }
-
-
+    
     render() {
         return (
 <Row style={{paddingTop:"10px"}}>
@@ -24,7 +19,6 @@ export class Play extends Component {
 <PlayQue
 questionData = {this.state.question}
 />
-<Button onClick={this.checkState}></Button>
 </Col>
 <Col span={2}>lk</Col>
 </Row>

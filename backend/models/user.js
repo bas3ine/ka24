@@ -19,6 +19,7 @@ module.exports = (sequelize, DataType) => {
 
   user.associate = (models) => {
     user.hasMany(models.question_list, { foreignKey: 'user_id' })
+    user.hasMany(models.score, { foreignKey: 'user_id' })
   }
 
   return user

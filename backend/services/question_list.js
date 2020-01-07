@@ -13,10 +13,6 @@ module.exports = (app, db) => {
           }]
       })
         .then((result) => {
-          let obj = {}
-          obj = {
-            quouo: result
-          }
           console.log(result.question_list, "result is")
           res.status(201).send(result)
         })

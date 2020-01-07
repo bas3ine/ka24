@@ -7,6 +7,7 @@ import Login from './pages/Login.js'
 import Signup from './pages/Signup.js'
 import Create from './pages/Create.js'
 import Play from './pages/Play.js'
+import Score from './pages/Score.js'
 import SelectionQuestion from './pages/SelectionQuestion'
 
 class App extends React.Component {
@@ -55,6 +56,7 @@ class App extends React.Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/create" component={Create} />
             <Route exact path="/play" component={Play} />
+            <Route exact path="/score" component={Score} />
             <Route exact path="/select" component={() =>
               <SelectionQuestion/>} 
               />

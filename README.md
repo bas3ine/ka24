@@ -83,7 +83,7 @@ SQL
 
     then run this command
 
-        sequelize db:create 
+        npx sequelize db:create 
         
         npm -i
 

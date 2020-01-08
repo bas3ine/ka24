@@ -21,9 +21,9 @@ const Op = Sequelize.Op;
         })
       }
     )
-    app.get('/showscore',passport.authenticate('jwt',{session:false}),
+    app.post('/showscore',passport.authenticate('jwt',{session:false}),
     function (req,res) {
-      console.log(req.body,"req is")
+      console.log(req.body,"show score is")
       db.score.findAll({
         where:{question_list_id:req.body.question_list_id},
         include: [

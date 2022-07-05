@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/bas3ine/ka24#readme",
   "dependencies": {
-    "mermaid": "^8.4.4"
+    "mermaid": "^9.1.2"
   }
 }
